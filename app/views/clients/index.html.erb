@@ -8,13 +8,16 @@
   <div class="col-md-4 col-md-offset-4">
     <div class="well well-lg client-preview">
       <% names = client.name + ' ' + client.surname %>
+     
       <h2><%= link_to names, client_path(client), class: "client-name" %></h2>
       <h4><%= pluralize(client.assessments.count, "assessment")  %></h4>
-      <small>Last assessment: <%= time_ago_in_words(client.assessments.last.created_at) if client.assessments  %></small>
+      <small>
+        <%= "Last assessment: " + time_ago_in_words(client.assessments.last.created_at) if client.assessments.any?  %>
+      </small>
+      
     </div>
     
   </div>
   <% end %>
 
 
-<%= link_to 'New Client', new_client_path %>
