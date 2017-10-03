@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @assessment.weight %>
+</p>
+
+<p>
+  <strong>Situps:</strong>
+  <%= @assessment.situps %>
+</p>
+
+<p>
+  <strong>Pushups:</strong>
+  <%= @assessment.pushups %>
+</p>
+
+<p>
+  <strong>Heartrate:</strong>
+  <%= @assessment.heartrate %>
+</p>
+
+<p>
+  <strong>Bodyfat:</strong>
+  <%= @assessment.bodyfat %>
+</p>
+
+<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+<%= link_to 'Back', assessments_path %>

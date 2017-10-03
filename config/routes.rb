@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  root 'pages#login'
+  resources :clients
+  resources :assessments
+  root 'pages#home'
   
   
   
