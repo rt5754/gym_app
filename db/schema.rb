@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003145643) do
+ActiveRecord::Schema.define(version: 20171003161117) do
 
   create_table "assessments", force: :cascade do |t|
     t.float    "weight"
@@ -21,14 +21,26 @@ ActiveRecord::Schema.define(version: 20171003145643) do
     t.float    "bodyfat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.integer  "client_id"
   end
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
-    t.string   "phonenumber"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "surname"
+    t.string   "phone_number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "trainer_id"
+  end
+
+  create_table "trainers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "username"
+    t.string   "password"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

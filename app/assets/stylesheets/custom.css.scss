@@ -1,6 +1,49 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//NAVBAR
+.navbar-header {
+  height: 45px;
+  line-height: 45px;
+}
+
+.logo {
+  float: left;
+  font-size: 1.7em;
+  color: grey;
+  letter-spacing: -1px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+//BODY
+
+.heading {
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.client-name {
+  color: black;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.client-preview {
+  padding-top: 0px;
+  text-align: center;
+}
+
+.client-actions {
+  border-top: 1px solid #eaeaea;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
 //FOOTER
 
 footer {
@@ -8,3 +51,4 @@ footer {
   margin-top: 20px;
   padding-top: 5px;
 }
+

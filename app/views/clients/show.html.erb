@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-6 col-md-offset-3">
+  
+  <div class="well well-lg client-preview">
+    <h1><%= @client.name + ' ' + @client.surname%></h1>
+    <h5><%= @client.phone_number %></h5>
+    <div class="client-actions">
+      <%= link_to 'Edit client info', edit_client_path(@client), class: "btn btn-xs btn-primary" %> |
+      <%= link_to 'Delete client', client_path(@client), method: :delete, 
+      data: { confirm: "Are you sure you want to delete the client?"}, class: "btn btn-xs btn-danger" %>  
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
-
-<p>
-  <strong>Phonenumber:</strong>
-  <%= @client.phonenumber %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
