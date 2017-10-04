@@ -4,12 +4,50 @@
   <div class="well well-lg client-preview">
     <h1><%= @client.name + ' ' + @client.surname%></h1>
     <h5><%= @client.phone_number %></h5>
+    
     <div class="client-actions">
-      <%= link_to 'New assessment', new_assessment_path(:client_id => @client.id), class: "btn btn-xs btn-success" %> |
-      <%= link_to 'Edit client info', edit_client_path(@client), class: "btn btn-xs btn-primary" %> |
-      <%= link_to 'Delete client', client_path(@client), method: :delete, 
-      data: { confirm: "Are you sure you want to delete the client?"}, class: "btn btn-xs btn-danger" %>  
+      <div class="row">
+        <div class="client-action col-md-4">
+          <%= link_to 'New assessment', new_assessment_path(:client_id => @client.id), class: "btn btn-xs btn-success" %>
+        </div>
+        <div class="client-action col-md-4">
+          <%= link_to 'Edit client info', edit_client_path(@client), class: "btn btn-xs btn-primary" %> 
+        </div>
+        <div class="client-action col-md-4">
+          <%= link_to 'Delete client', client_path(@client), method: :delete, 
+          data: { confirm: "Are you sure you want to delete the client?"}, class: "btn btn-xs btn-danger" %>  
+        </div>
+      </div>
     </div>
+    
+    <% if @client.assessments %>
+    
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Assessment</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% num = @client.assessments.count %>
+            <% @client.assessments.reverse.each do |a| %>
+              <tr>
+                <td class="col-md-3"><%= link_to num, assessment_path(a) %></td>
+                <td class="col-md-3"><%= a.created_at.strftime("%d %b %Y") %></td>
+              </tr>
+              <% num = num - 1 %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      
+    <% else %>
+      <h3>Client has no assessments</h3>
+    <% end %>
+    
+    
   </div>
 </div>
 

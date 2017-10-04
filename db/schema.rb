@@ -11,17 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003161117) do
+ActiveRecord::Schema.define(version: 20171004205823) do
 
   create_table "assessments", force: :cascade do |t|
     t.float    "weight"
     t.integer  "situps"
     t.integer  "pushups"
-    t.string   "heartrate"
-    t.float    "bodyfat"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "client_id"
+    t.float    "blood_pressure"
+    t.float    "resting_pulse"
+    t.integer  "fat_bicep"
+    t.integer  "fat_tricep"
+    t.integer  "fat_subscab"
+    t.integer  "fat_iliac"
+    t.integer  "fat_thigh"
+    t.float    "fat_total"
+    t.integer  "stretch"
+    t.string   "step_test_1"
+    t.string   "step_test_2"
+    t.string   "step_test_3"
   end
 
   create_table "clients", force: :cascade do |t|

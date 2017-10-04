@@ -1,10 +1,83 @@
 <%= render 'shared/errors', obj: @assessment %>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-4">
+  <div class="col-md-6 col-md-offset-3">
     <%= form_for(@assessment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    
+    <div class="pressure-pulse">
+      <h4 align="center">Blood pressure and Pulse</h4>
       <div class="form-group">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label :blood_pressure %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :blood_pressure, class: "form-control", placeholder: "eg. 120/90", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label :resting_pulse %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :resting_pulse, class: "form-control", placeholder: "eg. 110/70", autofocus: true %>
+        </div>
+      </div>
+      
+    </div>
+     
+    
+    <div class="fat-weight">
+      
+      <h4 align="center">Body Fat</h4>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label "Bicep" %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :fat_bicep, class: "form-control", placeholder: "Bicep", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label "Tricep" %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :fat_tricep, class: "form-control", placeholder: "Tricep", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label "Subscab" %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :fat_subscab, class: "form-control", placeholder: "Subscab", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label "Iliac" %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :fat_iliac, class: "form-control", placeholder: "Iliac", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label "Thigh" %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :fat_thigh, class: "form-control", placeholder: "Thigh", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
           <%= f.label :weight %><br>
         </div>
         <div class="col-md-4">
@@ -12,8 +85,47 @@
         </div>
       </div>
       
+    </div> 
+     
+    <div class="fitness-test">
+      <h4 align="center">Fitness Test</h4>
+       
       <div class="form-group">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label "Stretch" %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :stretch, class: "form-control", placeholder: "Stretch", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+          <%= f.label "Step Test" %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :step_test_1, class: "form-control", placeholder: "Step test 1", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :step_test_2, class: "form-control", placeholder: "Step test 2", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :step_test_3, class: "form-control", placeholder: "Step test 3", autofocus: true %>
+        </div>
+      </div>
+       
+      <div class="form-group">
+        <div class="control-label col-md-3 col-md-offset-2">
           <%= f.label :situps %><br>
         </div>
         <div class="col-md-4">
@@ -22,7 +134,7 @@
       </div>
       
       <div class="form-group">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-3 col-md-offset-2">
           <%= f.label :pushups %><br>
         </div>
         <div class="col-md-4">
@@ -30,29 +142,17 @@
         </div>
       </div>
       
-      <div class="form-group">
-        <div class="control-label col-md-2">
-          <%= f.label :heartrate %><br>
-        </div>
-        <div class="col-md-4">
-          <%= f.text_field :heartrate, class: "form-control", placeholder: "Heartrate in bpm"%>
-        </div>
-      </div>
       
-      <div class="form-group">
-        <div class="control-label col-md-2">
-          <%= f.label :bodyfat %><br>
-        </div>
-        <div class="col-md-4">
-          <%= f.text_field :bodyfat, class: "form-control", placeholder: "Body fat" %>
-        </div>
-      </div>
+    </div>  
+    
       
       <%= f.hidden_field :client_id, value: @assessment.client_id %>
       
-      <div class="actions">
-        <%= f.submit %>
-      </div>
+       <div class="form-group">
+            <div class="col-md-offset-3 col-md-6">
+              <%= f.submit class: 'btn btn-primary btn-lg create-btn' %>
+            </div>
+          </div>
       
     <% end %>
     

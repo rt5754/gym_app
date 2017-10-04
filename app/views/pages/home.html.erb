@@ -1,12 +1,18 @@
 <h1 align="center">Gym App</h1>
 
 <div class="container">
-  <div class="well well-lg">
-    <h2>Actions</h2>
-    <ul>
-      <li><%= link_to "View Clients", clients_path %></li>
-      <li><%= link_to "New Client", new_client_path %></li>
-    </ul>
+  <div class="jumbotron">
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-4 col-home">
+          <h3><%= pluralize(Client.count, "Client") %></h3>
+          <%= link_to "View Clients", clients_path, class: "btn btn-primary btn-lg client-action" %>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

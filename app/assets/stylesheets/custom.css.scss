@@ -7,7 +7,15 @@
   line-height: 45px;
 }
 
+.nav-link {
+  border-left: 2px solid #eaeaea;
+  &:hover {
+    background-color: white;
+  }
+}
+
 .logo {
+  margin-right: 10px;
   float: left;
   font-size: 1.7em;
   color: grey;
@@ -21,6 +29,7 @@
 
 .heading {
   border-bottom: 1px solid #eaeaea;
+  margin-top: -30px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -40,8 +49,38 @@
 
 .client-actions {
   border-top: 1px solid #eaeaea;
-  margin-top: 10px;
-  padding-top: 10px;
+  border-bottom: 1px solid #eaeaea;
+  margin: 10px 0px 0px 0px;
+  padding-top: 10px 0px 10px 0px;
+}
+
+.client-action {
+  padding: 10px;
+}
+
+.create-btn {
+  width: 100%;
+}
+
+th {
+  text-align: center;
+}
+
+.col-home {
+  text-align: center;
+}
+
+.fat-weight {
+  border-top: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.fitness-test {
+  border-top: 2px solid black;
+}
+
+.pressure-pulse {
+  border-top: 2px solid black;
 }
 
 //FOOTER
