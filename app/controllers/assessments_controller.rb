@@ -1,6 +1,5 @@
 class AssessmentsController < ApplicationController
   before_action :set_assessment, only: [:show, :edit, :update, :destroy]
-
   # GET /assessments
   # GET /assessments.json
   def index
@@ -14,7 +13,7 @@ class AssessmentsController < ApplicationController
 
   # GET /assessments/new
   def new
-    @assessment = Assessment.new
+    @assessment = Assessment.new(client_id: params[:client_id])
   end
 
   # GET /assessments/1/edit
@@ -25,7 +24,6 @@ class AssessmentsController < ApplicationController
   # POST /assessments.json
   def create
     @assessment = Assessment.new(assessment_params)
-
     respond_to do |format|
       if @assessment.save
         format.html { redirect_to @assessment, notice: 'Assessment was successfully created.' }
@@ -66,9 +64,8 @@ class AssessmentsController < ApplicationController
     def set_assessment
       @assessment = Assessment.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def assessment_params
-      params.require(:assessment).permit(:weight, :situps, :pushups, :heartrate, :bodyfat)
+      params.require(:assessment).permit(:weight, :situps, :pushups, :heartrate, :bodyfat, :client_id)
     end
 end

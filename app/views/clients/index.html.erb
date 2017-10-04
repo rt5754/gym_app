@@ -12,7 +12,7 @@
       <h2><%= link_to names, client_path(client), class: "client-name" %></h2>
       <h4><%= pluralize(client.assessments.count, "assessment")  %></h4>
       <small>
-        <%= "Last assessment: " + time_ago_in_words(client.assessments.last.created_at) if client.assessments.any?  %>
+        <%= "Last assessment: " + time_ago_in_words(client.assessments.last.created_at) + " ago" if client.assessments.any?  %>
       </small>
       
     </div>

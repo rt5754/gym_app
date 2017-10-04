@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :trainers
   resources :clients
   resources :assessments
+  
   root 'pages#home'
   
   

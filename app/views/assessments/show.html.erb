@@ -25,5 +25,11 @@
   <%= @assessment.bodyfat %>
 </p>
 
+<p>
+  <strong>Client ID:</strong>
+  <%= @assessment.client_id %>
+</p>
+
+
 <%= link_to 'Edit', edit_assessment_path(@assessment) %> |
 <%= link_to 'Back', assessments_path %>

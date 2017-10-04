@@ -5,6 +5,7 @@
     <h1><%= @client.name + ' ' + @client.surname%></h1>
     <h5><%= @client.phone_number %></h5>
     <div class="client-actions">
+      <%= link_to 'New assessment', new_assessment_path(:client_id => @client.id), class: "btn btn-xs btn-success" %> |
       <%= link_to 'Edit client info', edit_client_path(@client), class: "btn btn-xs btn-primary" %> |
       <%= link_to 'Delete client', client_path(@client), method: :delete, 
       data: { confirm: "Are you sure you want to delete the client?"}, class: "btn btn-xs btn-danger" %>  

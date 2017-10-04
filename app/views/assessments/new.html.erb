@@ -1,4 +1,6 @@
-<h1>New Assessment</h1>
+<div class="heading">
+  <h1>New Assessment for <%= Client.find(params[:client_id]).name %></h1>
+</div>
 
 <%= render 'form' %>
 

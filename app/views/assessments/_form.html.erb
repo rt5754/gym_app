@@ -1,37 +1,61 @@
-<%= form_for(@assessment) do |f| %>
-  <% if @assessment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@assessment.errors.count, "error") %> prohibited this assessment from being saved:</h2>
+<%= render 'shared/errors', obj: @assessment %>
 
-      <ul>
-      <% @assessment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-4">
+    <%= form_for(@assessment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :weight %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :weight, class: "form-control", placeholder: "Weight", autofocus: true %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :situps %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :situps, class: "form-control", placeholder: "Amount of situps" %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :pushups %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :pushups, class: "form-control", placeholder: "Amount of pushups" %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :heartrate %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :heartrate, class: "form-control", placeholder: "Heartrate in bpm"%>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :bodyfat %><br>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :bodyfat, class: "form-control", placeholder: "Body fat" %>
+        </div>
+      </div>
+      
+      <%= f.hidden_field :client_id, value: @assessment.client_id %>
+      
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+      
+    <% end %>
+    
+  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.text_field :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :situps %><br>
-    <%= f.number_field :situps %>
-  </div>
-  <div class="field">
-    <%= f.label :pushups %><br>
-    <%= f.number_field :pushups %>
-  </div>
-  <div class="field">
-    <%= f.label :heartrate %><br>
-    <%= f.text_field :heartrate %>
-  </div>
-  <div class="field">
-    <%= f.label :bodyfat %><br>
-    <%= f.text_field :bodyfat %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
