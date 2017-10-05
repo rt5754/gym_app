@@ -8,14 +8,14 @@
     <div class="client-actions">
       <div class="row">
         <div class="client-action col-md-4">
-          <%= link_to 'New assessment', new_assessment_path(:client_id => @client.id), class: "btn btn-xs btn-success" %>
+          <%= link_to 'New assessment', new_assessment_path(:client_id => @client.id), class: "btn btn-md btn-success" %>
         </div>
         <div class="client-action col-md-4">
-          <%= link_to 'Edit client info', edit_client_path(@client), class: "btn btn-xs btn-primary" %> 
+          <%= link_to 'Edit client info', edit_client_path(@client), class: "btn btn-md btn-primary" %> 
         </div>
         <div class="client-action col-md-4">
           <%= link_to 'Delete client', client_path(@client), method: :delete, 
-          data: { confirm: "Are you sure you want to delete the client?"}, class: "btn btn-xs btn-danger" %>  
+          data: { confirm: "Are you sure you want to delete the client?"}, class: "btn btn-md btn-danger" %>  
         </div>
       </div>
     </div>

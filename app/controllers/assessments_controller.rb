@@ -66,6 +66,7 @@ class AssessmentsController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def assessment_params
-      params.require(:assessment).permit(:weight, :situps, :pushups, :heartrate, :bodyfat, :client_id)
+      params.require(:assessment).permit(:weight, :situps, :pushups, :heartrate, :bodyfat, :client_id,
+      :blood_pressure, :resting_pulse, :fat_bicep, :fat_tricep, :fat_subscab, :fat_iliac, :fat_thigh, :stretch, :step_test_1, :step_test_2, :step_test_3)
     end
 end

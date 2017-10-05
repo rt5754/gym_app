@@ -1,25 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @assessment.weight %>
-</p>
+<div class="table-responsive col-md-8 col-md-offset-2">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <th class="col-md-4">Test</th>
+      <th class="col-md-4">Value</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Blood Pressure</td> 
+        <td><%= @assessment.blood_pressure %></td>
+      </tr>
+      <tr>
+        <td>Resting Pulse</td>
+        <td><%= @assessment.resting_pulse %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Situps:</strong>
-  <%= @assessment.situps %>
-</p>
-
-<p>
-  <strong>Pushups:</strong>
-  <%= @assessment.pushups %>
-</p>
-
-<p>
-  <strong>Client ID:</strong>
-  <%= @assessment.client_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
-<%= link_to 'Back', assessments_path %>
+<div class="col-md-8 col-md-offset-2">
+  <div class="col-md-6">
+    <%= link_to 'Back', client_path(Client.find_by(params[:client_id])), class: "btn btn-primary btn-lg full-btn" %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to 'Edit', edit_assessment_path(@assessment), class: "btn btn-warning btn-lg full-btn" %>
+  </div>
+</div>
