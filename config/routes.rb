@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :clients
   resources :assessments
   
+  get 'clients/:id/stats', to: 'clients#stats', as: 'client/stats'
+  
   root 'pages#home'
   
   

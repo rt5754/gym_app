@@ -1,0 +1,21 @@
+
+<div class="heading">
+  <h1 align="center">Statistics for <%= @client.name %>'s previous assessments</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-graph">
+    <h3 align="center" class="graph-heading">Weight</h3>
+    <%= line_chart @assessments.pluck(:created_at, :weight), xtitle: "Assessment",
+    ytitle: "Weight (kg)", id: random_chartkick_id, width: "100%", colors: ["#396ab1", "#999"] %>
+  </div>
+  <div class="col-md-6 col-graph">
+    <h3 align="center" class="graph-heading">Sit-ups</h3>
+    <%= line_chart @assessments.pluck(:created_at, :situps), xtitle: "Assessment", 
+    ytitle: "Situps", id: random_chartkick_id, width: "100%", colors: ["#cc2529", "#999"] %>
+  </div>
+  <div class="col-md-4 col-md-offset-4">
+    <%= link_to 'Back', client_path(Client.find_by(params[:client_id])), class: "btn btn-primary btn-lg full-btn" %>
+  </div>
+</div>
+

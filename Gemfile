@@ -22,9 +22,17 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#For sexy charts
+gem 'chartkick'
+#For grouping in charts
+gem 'groupdate'
+gem 'active_median'
+#For generating mock data
+gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'activerecord-reset-pk-sequence'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

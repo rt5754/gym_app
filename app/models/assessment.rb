@@ -6,4 +6,5 @@ class Assessment < ActiveRecord::Base
   validates :weight, presence: true, numericality: true
   validates :stretch, presence: true, numericality: true
   validates :step_test_1, :step_test_2, :step_test_3, presence: true
+  validates :situps, :pushups, presence: true
 end
