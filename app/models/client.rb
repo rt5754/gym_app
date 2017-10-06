@@ -5,5 +5,5 @@ class Client < ActiveRecord::Base
   validates :name, presence: true
   validates :phone_number, presence: true, uniqueness: true,
                  numericality: true,
-                 length: { minimum: 10,maximum: 10 } 
+                 length: { minimum: 10, maximum: 10 } 
 end

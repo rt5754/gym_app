@@ -24,6 +24,7 @@ class AssessmentsController < ApplicationController
   # POST /assessments.json
   def create
     @assessment = Assessment.new(assessment_params)
+    @assessment.fat_total = calculate_fat
     respond_to do |format|
       if @assessment.save
         format.html { redirect_to @assessment, notice: 'Assessment was successfully created.' }
@@ -67,6 +68,11 @@ class AssessmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assessment_params
       params.require(:assessment).permit(:weight, :situps, :pushups, :heartrate, :bodyfat, :client_id,
-      :blood_pressure, :resting_pulse, :fat_bicep, :fat_tricep, :fat_subscab, :fat_iliac, :fat_thigh, :stretch, :step_test_1, :step_test_2, :step_test_3)
+      :blood_pressure, :resting_pulse, :fat_bicep, :fat_tricep, :fat_subscab, :fat_iliac, :fat_thigh, 
+      :fat_total, :stretch, :step_test_1, :step_test_2, :step_test_3)
+    end
+    
+    def calculate_fat 
+      return ((@assessment.fat_bicep.to_f + @assessment.fat_tricep.to_f + @assessment.fat_subscab.to_f + @assessment.fat_iliac.to_f + @assessment.fat_thigh.to_f) / 5).to_f
     end
 end

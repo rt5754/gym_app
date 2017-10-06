@@ -34,7 +34,7 @@
             <% num = @client.assessments.count %>
             <% @client.assessments.reverse.each do |a| %>
               <tr>
-                <td class="col-md-3"><%= link_to num, assessment_path(a) %></td>
+                <td class="col-md-3"><%= link_to num, assessment_path(a), class: "btn btn-info btn-md half-btn" %></td>
                 <td class="col-md-3"><%= a.created_at.strftime("%d %b %Y") %></td>
               </tr>
               <% num = num - 1 %>
