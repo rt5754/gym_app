@@ -39,6 +39,7 @@ class AssessmentsController < ApplicationController
   # PATCH/PUT /assessments/1
   # PATCH/PUT /assessments/1.json
   def update
+    @assessment.fat_total = calculate_fat
     respond_to do |format|
       if @assessment.update(assessment_params)
         format.html { redirect_to @assessment, notice: 'Assessment was successfully updated.' }
