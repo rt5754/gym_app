@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :comments
   resources :trainers
   resources :clients
   resources :assessments
   
   get 'clients/:id/stats', to: 'clients#stats', as: 'client/stats'
+  
+  get 'clients/index', to: 'clients#index', as: 'clients/search'
   
   root 'pages#home'
   
@@ -45,8 +48,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end

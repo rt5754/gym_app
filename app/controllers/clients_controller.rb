@@ -4,9 +4,16 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = if params[:search_request]
+      Client.where('lower(name) LIKE ?', "%#{(params[:search_request]).downcase}%")
+    else
+      Client.all
+    end
   end
 
+  def search
+    @clients = Client.search(params[:search_request])
+  end
   # GET /clients/1
   # GET /clients/1.json
   def show
@@ -70,9 +77,13 @@ class ClientsController < ApplicationController
     def set_client
       @client = Client.find(params[:id])
     end
+    
+    def set_clients
+      @clients
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:name, :surname, :phone_number)
+      params.require(:client).permit(:name, :surname, :phone_number, :search_request)
     end
 end

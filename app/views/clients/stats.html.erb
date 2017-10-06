@@ -3,6 +3,8 @@
   <h1 align="center">Statistics for <%= @client.name %>'s previous assessments</h1>
 </div>
 
+<% Chartkick.options[:html] = '<div id="%{id}" style="height: %{height};">Loading...</div>' %>
+
 <div class="row">
   <div class="col-md-6 col-graph">
     <h3 align="center" class="graph-heading">Weight</h3>
@@ -10,12 +12,22 @@
     ytitle: "Weight (kg)", id: random_chartkick_id, width: "100%", colors: ["#396ab1", "#999"] %>
   </div>
   <div class="col-md-6 col-graph">
+    <h3 align="center" class="graph-heading">Body fat</h3>
+    <%= line_chart @assessments.pluck(:created_at, :fat_total), xtitle: "Assessment", 
+    ytitle: "Total body fat %", id: random_chartkick_id, width: "100%", colors: ["#cc2529", "#999"] %>
+  </div>
+  <div class="col-md-6 col-graph">
     <h3 align="center" class="graph-heading">Sit-ups</h3>
     <%= line_chart @assessments.pluck(:created_at, :situps), xtitle: "Assessment", 
-    ytitle: "Situps", id: random_chartkick_id, width: "100%", colors: ["#cc2529", "#999"] %>
+    ytitle: "Sit-ups per minute", id: random_chartkick_id, width: "100%", colors: ["#3e9651", "#999"], curve: false %>
+  </div>
+  <div class="col-md-6 col-graph">
+    <h3 align="center" class="graph-heading">Push-ups</h3>
+    <%= line_chart @assessments.pluck(:created_at, :pushups), xtitle: "Assessment", 
+    ytitle: "Push-ups (max)", id: random_chartkick_id, width: "100%", colors: ["#da7c30", "#999"], curve: false %>
   </div>
   <div class="col-md-4 col-md-offset-4">
-    <%= link_to 'Back', client_path(Client.find_by(params[:client_id])), class: "btn btn-primary btn-lg full-btn" %>
+    <%= link_to 'Back', client_path(@client), class: "btn btn-primary btn-lg full-btn" %>
   </div>
 </div>
 
