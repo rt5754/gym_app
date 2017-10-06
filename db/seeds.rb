@@ -5,16 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-10.times do |index|
+10.times do |x|
   Client.create!(name: Faker::Name.first_name, surname: Faker::Name.last_name, phone_number: Faker::Number.number(10))
-end
-
-10.times do |y|
-
-  6.times do |x|
+  
+  6.times do |y|
     
     Assessment.create(
-      client_id: y,
+      client_id: x,
       created_at: Faker::Date.between((365 - (x * 42)).days.ago, (365 - (x * 42)).days.ago),
       updated_at: Faker::Date.between((365 - (x * 42)).days.ago, (365 - (x * 42)).days.ago),
       weight: Faker::Number.between(60,100),
@@ -27,6 +24,7 @@ end
       fat_iliac: Faker::Number.between(1,10),
       fat_subscab: Faker::Number.between(1,10),
       fat_thigh: Faker::Number.between(1,10),
+      fat_total: Faker::Number.between(2,13),
       stretch: Faker::Number.between(10,46),
       step_test_1: Faker::Number.between(80,130),
       step_test_2: Faker::Number.between(80,130),
@@ -34,5 +32,4 @@ end
       )
        
   end
-
 end
